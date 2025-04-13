@@ -4,14 +4,19 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { getDictionary } from "@/dictionaries";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { rtlLanguages, languageCodes } from "@/lib/languages";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   variable: "--font-inter",
 });
 
-export function generateMetadata({ params }: { params: { lang: string } }) {
-  const { lang } = params;
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: string };
+}) {
+  const { lang } = await params;
   const dictionary = getDictionary(lang);
 
   return {
@@ -20,16 +25,16 @@ export function generateMetadata({ params }: { params: { lang: string } }) {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: string };
 }>) {
-  const { lang } = params;
+  const { lang } = await params;
   const dictionary = getDictionary(lang);
-  const isRtl = ["ar", "fa"].includes(lang);
+  const isRtl = rtlLanguages.includes(lang);
 
   return (
     <html lang={lang} dir={isRtl ? "rtl" : "ltr"}>
@@ -44,15 +49,5 @@ export default function RootLayout({
 }
 
 export async function generateStaticParams() {
-  return [
-    { lang: "ru" },
-    { lang: "en" },
-    { lang: "de" },
-    { lang: "fr" },
-    { lang: "ja" },
-    { lang: "zh" },
-    { lang: "ar" },
-    { lang: "tr" },
-    { lang: "fa" },
-  ];
+  return languageCodes.map((lang) => ({ lang }));
 }

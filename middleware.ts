@@ -2,11 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
-
-const locales = ["ru", "en", "de", "fr", "ja", "zh", "ar", "tr", "fa"];
-
-// Define a default locale
-const defaultLocale = "en";
+import { languageCodes, defaultLanguage } from "@/lib/languages";
 
 // Get the preferred locale, similar to the example in the docs
 function getLocale(request: NextRequest): string {
@@ -24,9 +20,9 @@ function getLocale(request: NextRequest): string {
   }
 
   try {
-    return matchLocale(languages, locales, defaultLocale);
+    return matchLocale(languages, languageCodes, defaultLanguage);
   } catch (e) {
-    return defaultLocale;
+    return defaultLanguage;
   }
 }
 
@@ -34,7 +30,7 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   // Check if there is any supported locale in the pathname
-  const pathnameHasLocale = locales.some(
+  const pathnameHasLocale = languageCodes.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 

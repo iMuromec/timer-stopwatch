@@ -1,7 +1,5 @@
 import { MetadataRoute } from "next";
-
-// Define all supported languages from the dictionaries folder
-const languages = ["ru", "en", "de", "fr", "ja", "zh", "ar", "tr", "fa"];
+import { languageCodes } from "@/lib/languages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Get the base URL from environment variable or use a default
@@ -17,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
 
   // Create entries for each language route
-  const langRoutes = languages.map((lang) => ({
+  const langRoutes = languageCodes.map((lang) => ({
     url: `${baseUrl}/${lang}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

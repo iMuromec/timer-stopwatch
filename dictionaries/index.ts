@@ -7,6 +7,7 @@ import { zh } from "./zh";
 import { ar } from "./ar";
 import { tr } from "./tr";
 import { fa } from "./fa";
+import { defaultLanguage } from "@/lib/languages";
 
 const dictionaries = {
   ru,
@@ -24,7 +25,7 @@ export type Dictionary = typeof en;
 
 export const getDictionary = (locale: string): Dictionary => {
   if (!Object.keys(dictionaries).includes(locale)) {
-    return dictionaries.en;
+    return dictionaries[defaultLanguage as keyof typeof dictionaries];
   }
   return dictionaries[locale as keyof typeof dictionaries];
 };
