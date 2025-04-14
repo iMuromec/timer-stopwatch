@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 font-inter">
       {activeComponent === "none" ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12 md:gap-16 lg:gap-24 w-full max-w-7xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 md:gap-10 lg:gap-10 w-full max-w-7xl">
           <button
             onClick={() => setActiveComponent("stopwatch")}
             className="flex flex-col items-center justify-center p-6 sm:p-10 md:p-16 lg:p-24 rounded-3xl border-4 border-border hover:border-primary transition-colors"

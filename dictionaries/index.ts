@@ -7,6 +7,7 @@ import { zh } from "./zh";
 import { ar } from "./ar";
 import { tr } from "./tr";
 import { fa } from "./fa";
+import { hi } from "./hi";
 import { defaultLanguage } from "@/lib/languages";
 
 const dictionaries = {
@@ -19,6 +20,7 @@ const dictionaries = {
   ar,
   tr,
   fa,
+  hi,
 };
 
 export type Dictionary = typeof en;

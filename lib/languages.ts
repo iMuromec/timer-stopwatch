@@ -8,6 +8,7 @@ export const languages = [
   { code: "ar", name: "العربية" },
   { code: "tr", name: "Türkçe" },
   { code: "fa", name: "فارسی" },
+  { code: "hi", name: "हिन्दी" },
 ];
 
 export const languageCodes = languages.map((lang) => lang.code);

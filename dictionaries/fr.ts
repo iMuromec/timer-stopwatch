@@ -5,6 +5,8 @@ export const fr = {
   pause: "Pause",
   resume: "Reprendre",
   reset: "Réinitialiser",
-  title: "Application Minuteur et Chronomètre",
-  description: "Une application multilingue de minuteur et chronomètre",
+  title:
+    "Grand et simple chronomètre et minuteur en ligne - Gratuit et en plein écran",
+  description:
+    "Chronomètre et minuteur en ligne gratuit avec un grand affichage en plein écran. Interface simple, facile à utiliser sur un ordinateur, une tablette ou un téléphone. Convient pour les études, l'entraînement, les événements et les tâches quotidiennes.",
 };

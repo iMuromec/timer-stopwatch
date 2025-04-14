@@ -5,6 +5,7 @@ export const en = {
   pause: "Pause",
   resume: "Resume",
   reset: "Reset",
-  title: "Timer & Stopwatch App",
-  description: "A multilingual timer and stopwatch application",
+  title: "Big and Simple Online Stopwatch and Timer - Free and Full Screen",
+  description:
+    "Free online stopwatch and timer with a big full-screen display. Simple interface, easy to use on a computer, tablet, or phone. Suitable for study, training, events, and daily tasks.",
 };
