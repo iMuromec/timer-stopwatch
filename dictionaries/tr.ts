@@ -9,4 +9,8 @@ export const tr = {
     "Büyük ve Basit Çevrimiçi Kronometre ve Zamanlayıcı - Ücretsiz ve Tam Ekran",
   description:
     "Büyük tam ekran görüntüsü ile ücretsiz çevrimiçi kronometre ve zamanlayıcı. Basit arayüz, bilgisayar, tablet veya telefonda kullanımı kolay. Çalışma, antrenman, etkinlikler ve günlük görevler için uygundur.",
+  lap: "Tur",
+  hours: "Saat",
+  minutes: "Dakika",
+  seconds: "Saniye",
 };
