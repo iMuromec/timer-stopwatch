@@ -3,8 +3,7 @@ import { languageCodes } from "@/lib/languages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Get the base URL from environment variable or use a default
-  const baseUrl =
-    process.env.NEXT_PUBLIC_APP_URL || "https://timer-stopwatch.com";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "";
 
   // Create the root URL entry
   const rootUrl = {

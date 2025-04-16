@@ -1,15 +1,15 @@
 # المؤقت-ساعة التوقيت
 
-[![RU](https://img.shields.io/badge/Русский-🇷🇺-blue.svg)](README.ru.md)
-[![EN](https://img.shields.io/badge/English-🇬🇧-red.svg)](README.md)
-[![DE](https://img.shields.io/badge/Deutsch-🇩🇪-gold.svg)](README.de.md)
-[![FR](https://img.shields.io/badge/Français-🇫🇷-purple.svg)](README.fr.md)
-[![ZH](https://img.shields.io/badge/中文-🇨🇳-maroon.svg)](README.zh.md)
-[![AR](https://img.shields.io/badge/العربية-🇦🇪-green.svg)](README.ar.md)
-[![FA](https://img.shields.io/badge/فارسی-🇮🇷-orange.svg)](README.fa.md)
-[![HI](https://img.shields.io/badge/हिंदी-🇮🇳-teal.svg)](README.hi.md)
-[![JA](https://img.shields.io/badge/日本語-🇯🇵-lightblue.svg)](README.ja.md)
-[![TR](https://img.shields.io/badge/Türkçe-🇹🇷-darkred.svg)](README.tr.md)
+[![RU](https://img.shields.io/badge/Русский-🇷🇺-blue.svg)](https://timer-stopwatch.onlineopen.space/ru)
+[![EN](https://img.shields.io/badge/English-🇬🇧-red.svg)](https://timer-stopwatch.onlineopen.space/en)
+[![DE](https://img.shields.io/badge/Deutsch-🇩🇪-gold.svg)](https://timer-stopwatch.onlineopen.space/de)
+[![FR](https://img.shields.io/badge/Français-🇫🇷-purple.svg)](https://timer-stopwatch.onlineopen.space/fr)
+[![ZH](https://img.shields.io/badge/中文-🇨🇳-maroon.svg)](https://timer-stopwatch.onlineopen.space/zh)
+[![AR](https://img.shields.io/badge/العربية-🇦🇪-green.svg)](https://timer-stopwatch.onlineopen.space/ar)
+[![FA](https://img.shields.io/badge/فارسی-🇮🇷-orange.svg)](https://timer-stopwatch.onlineopen.space/fa)
+[![HI](https://img.shields.io/badge/हिंदी-🇮🇳-teal.svg)](https://timer-stopwatch.onlineopen.space/hi)
+[![JA](https://img.shields.io/badge/日本語-🇯🇵-lightblue.svg)](https://timer-stopwatch.onlineopen.space/ja)
+[![TR](https://img.shields.io/badge/Türkçe-🇹🇷-darkred.svg)](https://timer-stopwatch.onlineopen.space/tr)
 
 <div dir="rtl">
 

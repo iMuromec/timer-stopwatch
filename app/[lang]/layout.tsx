@@ -58,6 +58,7 @@ export default async function LangLayout({
 
   return (
     <html lang={lang} dir={isRtl ? "rtl" : "ltr"}>
+      <meta name="yandex-verification" content="9ae3f796872748ab" />
       <link rel="icon" href="/favicon.svg" sizes="any" />
       <body className={`${inter.variable} font-inter`}>
         <div className="absolute top-4 right-4 z-10">
