@@ -2,7 +2,7 @@ import Script from "next/script";
 
 // Replace these with your actual IDs
 const YANDEX_METRICA_ID = "101117839";
-const GA_MEASUREMENT_ID = "";
+const GA_MEASUREMENT_ID = "G-4GX1JBD0PG";
 
 export default function Analytics() {
   const isProd = process.env.NODE_ENV === "production";
