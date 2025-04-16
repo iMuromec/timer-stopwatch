@@ -51,11 +51,13 @@ export default function Stopwatch({ onBack, lang }: StopwatchProps) {
     const seconds = Math.floor((time % 60000) / 1000);
     const milliseconds = Math.floor((time % 1000) / 10);
 
-    return `${hours.toString().padStart(2, "0")}:${minutes
+    const mainTime = `${hours.toString().padStart(2, "0")}:${minutes
       .toString()
-      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}:${milliseconds
-      .toString()
-      .padStart(2, "0")}`;
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+    const ms = milliseconds.toString().padStart(2, "0");
+
+    return { mainTime, ms };
   };
 
   return (
@@ -75,8 +77,13 @@ export default function Stopwatch({ onBack, lang }: StopwatchProps) {
         <div className="w-8 sm:w-10 md:w-12 lg:w-18" />
       </div>
 
-      <div className="text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-mono font-bold mb-6 sm:mb-12 md:mb-16 lg:mb-24 tabular-nums">
-        {formatTime()}
+      <div className="flex flex-col items-center justify-center mb-6 sm:mb-12 md:mb-16 lg:mb-24">
+        <div className="text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] xl:text-[15rem] font-inter font-bold tabular-nums leading-[0.8] tracking-wider">
+          {formatTime().mainTime}
+        </div>
+        <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter mt-2 opacity-80">
+          {formatTime().ms}
+        </div>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-12 w-full sm:w-auto justify-center">
