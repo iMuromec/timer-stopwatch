@@ -23,39 +23,51 @@ export default function Timer({ onBack, lang }: TimerProps) {
   const [milliseconds, setMilliseconds] = useState(0);
   const [isConfiguring, setIsConfiguring] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const msIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const endTimeRef = useRef<number>(0);
+  const pausedTimeLeftRef = useRef<number>(0);
+  const lastUpdateTimeRef = useRef<number>(0);
   const dictionary = getDictionary(lang);
 
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
-      intervalRef.current = setInterval(() => {
-        setTimeLeft((prevTime) => {
-          if (prevTime <= 1) {
-            clearInterval(intervalRef.current as NodeJS.Timeout);
-            clearInterval(msIntervalRef.current as NodeJS.Timeout);
-            setIsRunning(false);
-            setIsPaused(false);
-            setMilliseconds(0);
-            return 0;
-          }
-          return prevTime - 1;
-        });
-      }, 1000);
+      if (pausedTimeLeftRef.current > 0) {
+        endTimeRef.current = Date.now() + pausedTimeLeftRef.current * 1000;
+        pausedTimeLeftRef.current = 0;
+      } else {
+        endTimeRef.current = Date.now() + timeLeft * 1000;
+      }
 
-      msIntervalRef.current = setInterval(() => {
-        setMilliseconds((prev) => {
-          if (prev <= 10) {
-            return 99;
-          }
-          return prev - 1;
-        });
+      lastUpdateTimeRef.current = Date.now();
+
+      intervalRef.current = setInterval(() => {
+        const now = Date.now();
+        const remaining = Math.max(
+          0,
+          Math.ceil((endTimeRef.current - now) / 1000)
+        );
+
+        if (remaining <= 0) {
+          clearInterval(intervalRef.current as NodeJS.Timeout);
+          setIsRunning(false);
+          setIsPaused(false);
+          setMilliseconds(0);
+          setTimeLeft(0);
+        } else {
+          setTimeLeft(remaining);
+
+          const ms = Math.floor(((endTimeRef.current - now) % 1000) / 10);
+          setMilliseconds(ms);
+        }
+
+        lastUpdateTimeRef.current = now;
       }, 10);
     } else if (!isRunning) {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
-      }
-      if (msIntervalRef.current) {
-        clearInterval(msIntervalRef.current);
+
+        if (timeLeft > 0 && isConfiguring === false) {
+          pausedTimeLeftRef.current = timeLeft;
+        }
       }
     }
 
@@ -63,11 +75,8 @@ export default function Timer({ onBack, lang }: TimerProps) {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
-      if (msIntervalRef.current) {
-        clearInterval(msIntervalRef.current);
-      }
     };
-  }, [isRunning, timeLeft]);
+  }, [isRunning, timeLeft, isConfiguring]);
 
   const handleStartStop = () => {
     if (isConfiguring) {
@@ -90,6 +99,7 @@ export default function Timer({ onBack, lang }: TimerProps) {
     setIsConfiguring(true);
     setTimeLeft(0);
     setMilliseconds(0);
+    pausedTimeLeftRef.current = 0;
   };
 
   // Format time as hh:mm:ss

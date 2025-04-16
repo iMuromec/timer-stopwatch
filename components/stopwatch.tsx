@@ -15,15 +15,24 @@ export default function Stopwatch({ onBack, lang }: StopwatchProps) {
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const startTimeRef = useRef<number>(0);
+  const accumulatedTimeRef = useRef<number>(0);
   const dictionary = getDictionary(lang);
 
   useEffect(() => {
     if (isRunning) {
+      startTimeRef.current = Date.now();
+
       intervalRef.current = setInterval(() => {
-        setTime((prevTime) => prevTime + 10);
+        const elapsed =
+          Date.now() - startTimeRef.current + accumulatedTimeRef.current;
+        setTime(elapsed);
       }, 10);
     } else if (intervalRef.current) {
       clearInterval(intervalRef.current);
+      if (time > 0) {
+        accumulatedTimeRef.current = time;
+      }
     }
 
     return () => {
@@ -42,6 +51,7 @@ export default function Stopwatch({ onBack, lang }: StopwatchProps) {
     setIsRunning(false);
     setIsPaused(false);
     setTime(0);
+    accumulatedTimeRef.current = 0;
   };
 
   // Format time as hh:mm:ss:ms
